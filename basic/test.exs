@@ -39,5 +39,26 @@ defmodule Params do
     end
 end
 
+defmodule Maplist do #再帰的なリスト処理 $ Maplist.map([1,2,3,4,5],fn (n) -> n*2 end)
+    def map([],_func), do: []
+    def map([head | tail], func), do: [func.(head) | map(tail,func)]
+end
+
+
+defmodule FB do
+
+    def fizzbuzz(0,0,_), do: (
+        IO.puts "fizzbuzz" 
+    )
+    def fizzbuzz(0,_,_), do: (
+        IO.puts "fizz"
+    )
+    def fizzbuzz(_,0,_), do: (
+        IO.puts "buzz" 
+    )
+    def fizzbuzz(_,_,x), do: (
+        IO.puts x 
+    )
+end
 
 sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び出しは$ sum.(1,2)
