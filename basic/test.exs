@@ -45,8 +45,20 @@ defmodule Maplist do #再帰的なリスト処理 $ Maplist.map([1,2,3,4,5],fn (
 end
 
 
-defmodule FB do
+defmodule MyList do # MyList.sum([1,2,3,4,5],0)
+    def sum([],total), do: total
+    def sum([head|tail],total), do: sum(tail,total+head)
+end
 
+defmodule MyListPrivate do #$ MyListPrivate.sum([1,2,3,4,5])
+    def sum(list), do: _sum(list,0)
+
+    defp _sum([],total), do: total
+    defp _sum([head|tail],total), do: _sum(tail,total+head)
+end
+
+
+defmodule FB do
     def fizzbuzz(0,0,_), do: (
         IO.puts "fizzbuzz" 
     )
@@ -59,6 +71,11 @@ defmodule FB do
     def fizzbuzz(_,_,x), do: (
         IO.puts x 
     )
+
+    def setList([head|tail]), do: _setList([head|tail],head)
+
+    defp _setList([0|tail],_), do: [0|tail]
+    defp _setList(list,n), do: _setList([n-1|list],n-1)
 end
 
 sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び出しは$ sum.(1,2)
