@@ -78,4 +78,18 @@ defmodule FB do
     defp _setList(list,n), do: _setList([n-1|list],n-1)
 end
 
+
+defmodule Canvas do
+    @defaults [ fg: "black", bg: "white", font: "Merriweather"]
+
+    def draw_text(text,options\\[]) do #Canvas.draw_text("hello",fg: "red",style: "italic", style: "bold")
+        options = Keyword.merge(@defaults,options)
+        IO.puts "Drawing text #{inspect(text)}"
+        IO.puts "Foreground #{options[:fg]}"
+        IO.puts "Background: #{Keyword.get(options, :bg)}"
+        IO.puts "pattern #{Keyword.get(options, :font)}"
+        IO.puts "Style: #{inspect Keyword.get_values(options, :style)}"
+    end
+end
+
 sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び出しは$ sum.(1,2)
