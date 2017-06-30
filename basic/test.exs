@@ -20,6 +20,11 @@ defmodule Test do
         IO.puts mp2.ohana
         IO.puts mp2[:ore]
     )
+
+    def map2(person) do #heightというキーを持ったmapの受け取り
+        IO.puts "#{person.height}"
+    end
+
 end
 
 defmodule Params do
@@ -92,4 +97,22 @@ defmodule Canvas do
     end
 end
 
+defmodule Subscriber do #構造体の定義
+    defstruct name: "", paid: false, over_18: true 
+    #s1 = %Subscriber{}
+    #s2 = %Subscriber{name: "Dave"} 
+end
+
+defmodule Customer do
+    defstruct name: "", company: ""
+end
+
+defmodule BugReport do
+    defstruct owner: %Customer{}, details: "", severity: 1
+    #report = %BugReport{owner: %Customer{name: "Dave", company: "Pragmatic"},details: "broken"}
+end
+
 sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び出しは$ sum.(1,2)
+
+#m = %{a: 1,b: 2,c: 5}
+#m1 = %{m|b: 9,c: 18} マップの更新
