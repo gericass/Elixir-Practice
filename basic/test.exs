@@ -110,6 +110,7 @@ end
 defmodule BugReport do
     defstruct owner: %Customer{}, details: "", severity: 1
     #report = %BugReport{owner: %Customer{name: "Dave", company: "Pragmatic"},details: "broken"}
+    #put_in(report.owner.company, "PragProg") 構造体in構造体の値の書き換え
 end
 
 sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び出しは$ sum.(1,2)
