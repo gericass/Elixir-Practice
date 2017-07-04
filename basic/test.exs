@@ -117,3 +117,6 @@ sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び�
 
 #m = %{a: 1,b: 2,c: 5}
 #m1 = %{m|b: 9,c: 18} マップの更新
+
+#for x <- [1,2,3,4,5], do: x*x 内包表記
+#for x <- [1,2], y <- [5,6] do: x*y 二重for文的
