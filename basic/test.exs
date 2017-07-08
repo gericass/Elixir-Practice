@@ -120,3 +120,12 @@ sum = fn (a,b) -> a+b end #無名関数。Pythonで言う所のlambda　呼び�
 
 #for x <- [1,2,3,4,5], do: x*x 内包表記
 #for x <- [1,2], y <- [5,6] do: x*y 二重for文的
+
+defmodule Tst do #ハッシュ計算&Int変換
+    def hashToInt(str) do
+        :crypto.hash(:sha256,str)
+            |> Base.encode16(case: :lower)
+            |> Integer.parse(16)
+            |> elem(0)
+    end
+end
