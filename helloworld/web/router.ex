@@ -18,6 +18,7 @@ defmodule Helloworld.Router do
 
     get "/", PageController, :index
     get "/hello", HelloController, :index
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.

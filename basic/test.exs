@@ -129,3 +129,12 @@ defmodule Tst do #ハッシュ計算&Int変換
             |> elem(0)
     end
 end
+
+defmodule RandomString do
+    def randstr do
+        seed = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        char_list = String.codepoints(seed)
+                        |> Enum.take_random(30)
+        Enum.join(char_list)
+    end
+end
