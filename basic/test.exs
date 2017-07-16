@@ -131,10 +131,23 @@ defmodule Tst do #ハッシュ計算&Int変換
 end
 
 defmodule RandomString do
-    def randstr do
-        seed = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        char_list = String.codepoints(seed)
-                        |> Enum.take_random(30)
-        Enum.join(char_list)
+    def randstr , do: randstr_([])
+    defp randstr_(list) when length(list)<30 do
+        char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                |> String.codepoints
+                |> Enum.take_random(1)
+                |> List.first
+        randstr_([char|list])
+    end
+    defp randstr_(list) when length(list)>=30 , do: Enum.join(list)
+end
+
+defmodule TestRandom do
+
+    def randnum do
+        num = :rand.uniform(10000)
+        IO.inspect is_integer(num)
+        randnum()
+        
     end
 end
